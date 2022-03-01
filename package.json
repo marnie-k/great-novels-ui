@@ -1,34 +1,37 @@
 {
-  "name": "great-novels-ui",
+  "name": "super-hero-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
-    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev:client:build && ./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
+    "dev:client": "cd client && npm start",
+    "dev:client:build": "cd client && npm run build",
     "lint": "./node_modules/.bin/eslint --format codeframe .",
-    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stackeducation/great-novels-api.git"
+    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe .",
+    "dev:client:test": "cd client && npm run test",
+    "dev:server:test": "./node_modules/.bin/env-cmd ./node_modules/.bin/mocha tests/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/stackeducation/great-novels-api/issues"
-  },
-  "homepage": "https://github.com/stackeducation/great-novels-api#readme",
   "dependencies": {
+    "body-parser": "^1.19.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.6",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^5.22.5",
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "concurrently": "^6.2.1",
     "env-cmd": "^10.1.0",
-    "eslint": "^7.11.0",
-    "nodemon": "^2.0.2"
+    "eslint": "7.11.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.2",
+    "sinon": "^9.0.1",
+    "sinon-chai": "^3.5.0"
   }
 }

@@ -1,0 +1,35 @@
+
+.Novels{
+  background-color: rgb(118, 119, 97) (20, 19, 18);
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  overflow: scroll;
+}
+
+.Header{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+input{
+  border: 9px solid black(500, 500, 500) ;
+  border-radius: 100px;
+ margin-bottom: 25px;
+ color:rgb(11, 3, 12);
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ font-size: larger;
+
+}
+
+.Header{
+  color:rgb(39, 5, 102);
+}
+
+.Title{
+  color:rgb(49, 11, 16);
+  font-weight: bold;
+  font-size: x-large;
+}
+.Author {
+  color:rgb(23, 119, 55);
+  font-size: large;
+}
